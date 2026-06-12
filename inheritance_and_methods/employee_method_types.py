@@ -96,3 +96,29 @@ is_valid_salary("abc")  -> False
 =================================================
 
 """
+class Employee:
+    company = "ABC Company"
+
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+    def display(self):
+        print("Name:", self.name)
+        print("Salary:", self.salary)
+
+    @classmethod
+    def show_company(cls):
+        print("Company:", cls.company)
+
+    @staticmethod
+    def greet():
+        print("Welcome Employee")
+
+
+emp = Employee("John", 50000)
+
+emp.display()          # Instance Method
+Employee.show_company() # Class Method
+Employee.greet()        # Static Method
+
