@@ -155,3 +155,48 @@ Team total salary -> 173250.0 + 105000.0 + 84000.0
 =================================================
 
 """
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def show_person(self):
+        print("Name:", self.name)
+
+
+class Employee(Person):
+    company = "ABC Company"
+
+    def __init__(self, name, emp_id):
+        super().__init__(name)
+        self.emp_id = emp_id
+
+    def show_employee(self):
+        print("Employee ID:", self.emp_id)
+
+    @classmethod
+    def show_company(cls):
+        print("Company:", cls.company)
+
+
+class Manager(Employee):
+    def __init__(self, name, emp_id, department):
+        super().__init__(name, emp_id)
+        self.department = department
+
+    def show_manager(self):
+        print("Department:", self.department)
+
+    @staticmethod
+    def greet():
+        print("Welcome Manager")
+
+
+m = Manager("John", 101, "IT")
+
+m.show_person()
+m.show_employee()
+m.show_manager()
+
+Manager.show_company()
+Manager.greet()
+
