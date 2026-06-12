@@ -112,3 +112,63 @@ Explanation:
 =================================================
 
 """
+import math
+
+class Shape:
+    def __init__(self, name):
+        self.name = name
+
+    def area(self):
+        raise NotImplementedError("Area not implemented")
+
+    def perimeter(self):
+        raise NotImplementedError("Perimeter not implemented")
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        super().__init__("Circle")
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius * self.radius
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        super().__init__("Rectangle")
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+
+class Triangle(Shape):
+    def __init__(self, a, b, c):
+        super().__init__("Triangle")
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def area(self):
+        s = (self.a + self.b + self.c) / 2
+        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
+
+    def perimeter(self):
+        return self.a + self.b + self.c
+
+
+c = Circle(5)
+r = Rectangle(4, 6)
+t = Triangle(3, 4, 5)
+
+print(c.name, "Area =", c.area(), "Perimeter =", c.perimeter())
+print(r.name, "Area =", r.area(), "Perimeter =", r.perimeter())
+print(t.name, "Area =", t.area(), "Perimeter =", t.perimeter())
